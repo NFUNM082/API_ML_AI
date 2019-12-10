@@ -38,6 +38,116 @@ Face++的人体关键点技术可定位并返回人体各部位关键点坐标�
 
 ## API
 ### API调用
+#### 百度
+- 人体关键点识别：  
+检测图像中的人体并返回人体矩形框位置，精准定位21个核心关键点，包含头顶、五官、颈部、四肢主要关节部位，支持多人检测、大动作等复杂场景。  
+接口地址：https://aip.baidubce.com/rest/2.0/image-classify/v1/body_analysis  
+服务实例：  
+```
+import requests
+import base64
+
+'''
+人体关键点识别
+'''
+
+request_url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/body_analysis"
+f = open('C:/Users/admin/Desktop/timg.jpg', 'rb')
+img = base64.b64encode(f.read())
+
+params = {"image":img}
+access_token = '24.2d1aae592f1ccec3e9b41791d9c2dae2.2592000.1578589192.282335-17992819'
+request_url = request_url + "?access_token=" + access_token
+headers = {'content-type': 'application/x-www-form-urlencoded'}
+response = requests.post(request_url, data=params, headers=headers)
+if response:
+    print (response.json())
+```
+- 手部关键点识别：  
+检测图片中的手部并返回手部矩形框位置，定位手部的21个主要骨节点。  
+接口地址：https://aip.baidubce.com/rest/2.0/image-classify/v1/hand_analysis  
+服务实例：  
+```
+import requests
+import base64
+
+'''
+手部关键点识别
+'''
+
+request_url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/hand_analysis"
+f = open('C:/Users/admin/Desktop/hands.jpg', 'rb')
+img = base64.b64encode(f.read())
+
+params = {"image":img}
+access_token = '24.2d1aae592f1ccec3e9b41791d9c2dae2.2592000.1578589192.282335-17992819'
+request_url = request_url + "?access_token=" + access_token
+headers = {'content-type': 'application/x-www-form-urlencoded'}
+response = requests.post(request_url, data=params, headers=headers)
+if response:
+    print (response.json())
+```
+#### Face++
+- HumanBody Segment API（人体关键点）：  
+定位并返回人体各部位关键点坐标位置。关键点定位了头、颈、肩、肘、手、臀、膝、脚等部位。  
+接口地址：https://api-cn.faceplusplus.com/humanbodypp/v1/skeleton  
+服务实例：  
+```
+import urllib.request
+import urllib.error
+import time
+
+http_url = 'https://api-cn.faceplusplus.com/humanbodypp/v1/skeleton'
+key = "uFv2kNuA331u_pZRlZKEoy_ZyTbkEKjT"
+secret = "2vED9Ye9anJjngSyKVATLHcD8Ks88cTM"
+filepath = r"C:\Users\admin\Desktop\timg.jpg"
+
+boundary = '----------%s' % hex(int(time.time() * 1000))
+data = []
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'api_key')
+data.append(key)
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'api_secret')
+data.append(secret)
+data.append('--%s' % boundary)
+fr = open(filepath, 'rb')
+data.append('Content-Disposition: form-data; name="%s"; filename=" "' % 'image_file')
+data.append('Content-Type: %s\r\n' % 'application/octet-stream')
+data.append(fr.read())
+fr.close()
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'return_landmark')
+data.append('1')
+data.append('--%s' % boundary)
+data.append('Content-Disposition: form-data; name="%s"\r\n' % 'return_attributes')
+data.append(
+    "gender,age,smiling,headpose,facequality,blur,eyestatus,emotion,ethnicity,beauty,mouthstatus,eyegaze,skinstatus")
+data.append('--%s--\r\n' % boundary)
+
+for i, d in enumerate(data):
+    if isinstance(d, str):
+        data[i] = d.encode('utf-8')
+
+http_body = b'\r\n'.join(data)
+
+# build http request
+req = urllib.request.Request(url=http_url, data=http_body)
+
+# header
+req.add_header('Content-Type', 'multipart/form-data; boundary=%s' % boundary)
+
+try:
+    # post data to server
+    resp = urllib.request.urlopen(req, timeout=5)
+    # get response
+    qrcont = resp.read()
+    # if you want to load as json, you should decode first,
+    # for example: json.loads(qrount.decode('utf-8'))
+    print(qrcont.decode('utf-8'))
+except urllib.error.HTTPError as e:
+    print(e.read().decode('utf-8'))
+```
 ### API比较
 1.百度AI与此应用有关的有人体关键点识别和手部关键点识别。  
 免费版适用于个人开发者和企业测试期使用。50000次/天的调用量；2 QPS的并发支持；5工作日内的客服响应。  
