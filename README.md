@@ -43,6 +43,7 @@ Face++的人体关键点技术可定位并返回人体各部位关键点坐标�
 检测图像中的人体并返回人体矩形框位置，精准定位21个核心关键点，包含头顶、五官、颈部、四肢主要关节部位，支持多人检测、大动作等复杂场景。  
 接口地址：https://aip.baidubce.com/rest/2.0/image-classify/v1/body_analysis  
 服务实例：  
+输入  
 ```
 import requests
 import base64
@@ -62,11 +63,14 @@ headers = {'content-type': 'application/x-www-form-urlencoded'}
 response = requests.post(request_url, data=params, headers=headers)
 if response:
     print (response.json())
-```
+```  
+输出  
+![百度人体关键点识别.png](https://upload-images.jianshu.io/upload_images/9437529-44aa1f7d56d1781a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 - 手部关键点识别：  
 检测图片中的手部并返回手部矩形框位置，定位手部的21个主要骨节点。  
 接口地址：https://aip.baidubce.com/rest/2.0/image-classify/v1/hand_analysis  
 服务实例：  
+输入  
 ```
 import requests
 import base64
@@ -86,12 +90,15 @@ headers = {'content-type': 'application/x-www-form-urlencoded'}
 response = requests.post(request_url, data=params, headers=headers)
 if response:
     print (response.json())
-```
+```  
+输出  
+![百度手部关键点识别.png](https://upload-images.jianshu.io/upload_images/9437529-b79e6eb22758d0e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 #### Face++
 - HumanBody Segment API（人体关键点）：  
 定位并返回人体各部位关键点坐标位置。关键点定位了头、颈、肩、肘、手、臀、膝、脚等部位。  
 接口地址：https://api-cn.faceplusplus.com/humanbodypp/v1/skeleton  
-服务实例：  
+服务实例： 
+输入  
 ```
 import urllib.request
 import urllib.error
@@ -147,7 +154,9 @@ try:
     print(qrcont.decode('utf-8'))
 except urllib.error.HTTPError as e:
     print(e.read().decode('utf-8'))
-```
+```  
+输出  
+![face++人体关键点.png](https://upload-images.jianshu.io/upload_images/9437529-063439b6a2992be1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ### API比较
 1.百度AI与此应用有关的有人体关键点识别和手部关键点识别。  
 免费版适用于个人开发者和企业测试期使用。50000次/天的调用量；2 QPS的并发支持；5工作日内的客服响应。  
