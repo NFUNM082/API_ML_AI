@@ -39,8 +39,32 @@ Face++的人体关键点技术可定位并返回人体各部位关键点坐标�
 -|-|-
 1 | 识别检测 | 用户试拍一张照片后，应用检测照片中的人体部位关键点检测，返回关键点数值以进行匹配。 | 百度AI-人体关键点检测、手部关键点识别；Face++-人体关键点。
 2 | 推荐最佳pose | 用户想要用自己喜欢的姿势拍照，但是细节动作不知道如何摆才好看，需要找到和既定姿势相近的进行比对和学习调整。 | 推荐系统（后期做）
-3 | 发现新功能 | 用户未了解过教人拍照摆pose功能，当使用拍照软件拍照时，应用自动给用户推荐好看的pose，让用户发现并尝试此功能。 | 推荐系统（后期做）
+3 | 发现新功能 | 用户未了解过教人拍照摆pose功能，当使用拍照软件拍照时，应用显示识别功能，自动给用户推荐好看的pose，让用户发现并尝试此功能。 | 推荐系统（后期做）
 4 | 历史记录 | 用户下一次拍照时，想起之前拍的某张照片很好看，依旧想用那个pose拍照。 | 搜索历史关键点定位数值，筛选出曾经用过的pose。
+
+## 原型
+- [原型展示](http://nfunm082.gitee.io/api-pose)
+- [原型下载区](https://github.com/NFUNM082/API_ML_AI/tree/master/%E5%8E%9F%E5%9E%8B%E4%B8%8B%E8%BD%BD%E5%8C%BA)
+*此产品文档展示的核心功能为识别图像并返回关键点数值，为用户推荐最合适pose。相机应用的滤镜、设置、镜头翻转、图库功能区不做具体展示。*
+### 展示交互与设计
+- **Pose帮拍主页面**——拍照功能  
+用户进入该应用后可开始拍照，并有【姿势】、【滤镜】、设置、镜头翻转、图库这些功能选择。
+![](https://github.com/NFUNM082/API_ML_AI/blob/master/images/%E4%B8%BB%E9%A1%B5%E9%9D%A2.png)
+- **拍照页面**——用户按下拍照键后进行下一步操作   
+点击主页面的【拍照】键，拍下当前照片，后用户可选择手动收藏、保存照片、分享照片，不喜欢这张照片可不保存返回。
+![](https://github.com/NFUNM082/API_ML_AI/blob/master/images/%E6%8B%8D%E7%85%A7.png)
+- **识别、推荐pose页面**——识别图像并返回关键点数值，在pose库里推荐最合适的给用户  
+用户按下拍照键后，可单击【识别】，应用开始识别该照片并返回关键点数值，以线框表现。用户可自主开启/关闭线框。在本产品原型中可点击ON查看效果。应用获取用户照片的人体关键点数值，与库中的pose比对，匹配出相近的pose（例如剪刀手）优先推荐给用户选择。用户同样可以自主选择使用某一个pose。  
+![开启线框](https://github.com/NFUNM082/API_ML_AI/blob/master/images/%E4%B8%8B%E4%B8%80%E6%AD%A5on.png)
+![关闭线框](https://github.com/NFUNM082/API_ML_AI/blob/master/images/%E4%B8%8B%E4%B8%80%E6%AD%A5off.png)  
+![推荐pose](https://github.com/NFUNM082/API_ML_AI/blob/master/images/%E5%B7%B2%E6%8E%A8%E8%8D%90.png)
+- **pose库**——用户自主选择心仪的pose  
+点击主页面的【姿势】，页面下方弹出收录的pose库。“常用”：用户历史使用过的pose，可快速找到之前用过的pose。“爱心”：用户手动收藏的pose。*以上两个分类皆为帮助用户节省挑选的时间* “自拍”、“日常”、“街拍”……：pose库中收录的pose，按使用场景分类，用户可根据当前场景选择分类。
+![](https://github.com/NFUNM082/API_ML_AI/blob/master/images/pose%E5%BA%93.png)
+### 产品及功能架构
+![产品及功能结构图](https://github.com/NFUNM082/API_ML_AI/blob/master/images/Pose%E5%B8%AE%E6%8B%8D%E4%BA%A7%E5%93%81%E5%8F%8A%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+### 操作说明
+
 
 ## API
 ### API调用
