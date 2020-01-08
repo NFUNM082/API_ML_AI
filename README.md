@@ -44,9 +44,9 @@ Face++的人体关键点技术可定位并返回人体各部位关键点坐标�
 
 ## 原型
 - [原型展示](http://nfunm082.gitee.io/api-pose)
-- [原型下载区](https://github.com/NFUNM082/API_ML_AI/tree/master/%E5%8E%9F%E5%9E%8B%E4%B8%8B%E8%BD%BD%E5%8C%BA)  
+- [原型下载区](https://gitee.com/NFUNM082/api-pose)  
 *此产品文档展示的核心功能为识别图像并返回关键点数值，为用户推荐最合适pose。相机应用的滤镜、设置、镜头翻转、图库功能区不做具体展示。*
-### 展示交互与设计
+### 主要功能展示交互与设计
 - **Pose帮拍主页面**——拍照功能  
 用户进入该应用后可开始拍照，并有【姿势】、【滤镜】、设置、镜头翻转、图库这些功能选择。
 ![](https://github.com/NFUNM082/API_ML_AI/blob/master/images/%E4%B8%BB%E9%A1%B5%E9%9D%A2.png)
