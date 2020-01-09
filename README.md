@@ -1,4 +1,5 @@
 # Pose帮拍应用产品需求文档
+[PPT下载区](https://gitee.com/NFUNM082/api-pose-ppt/blob/master/Pose%E5%B8%AE%E6%8B%8D.pptx)
 
 | 发布日期 | 2019-12-10（初稿） |
 |---|---|
