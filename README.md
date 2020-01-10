@@ -1,5 +1,7 @@
 # Pose帮拍应用产品需求文档
-[PPT下载区](https://gitee.com/NFUNM082/api-pose-ppt/blob/master/Pose%E5%B8%AE%E6%8B%8D.pptx)
+[PPT下载区1](https://gitee.com/NFUNM082/api-pose-ppt/blob/master/Pose%E5%B8%AE%E6%8B%8D.pptx)    
+PPT下载方式2：下载此仓库ZIP  
+*演示文档已设置自动切换和旁白，只需要点击放映即可，谢谢*
 
 | 发布日期 | 2019-12-10（初稿） |
 |---|---|
